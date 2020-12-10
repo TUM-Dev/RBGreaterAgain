@@ -1,0 +1,27 @@
+:root {
+    --background-color: #0b0c10;
+    --accent-color: #ccfffc;
+    --primary-color: #FCFCFC;
+}
+
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    font-family: 'Roboto';
+}
+
+a {
+    color: var(--accent-color);
+}
+
+
+#page-title {
+    padding-top: 64px;
+    font-size: 3em;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+}

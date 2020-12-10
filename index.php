@@ -35,7 +35,7 @@ function constructLink($type, $link)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RBGreaterAgain</title>
+    <title>RBGreater</title>
 
     <script src="lib/jquery-3.4.1.min.js"></script>
     <script src="js/content_handler.js"></script>
@@ -44,12 +44,13 @@ function constructLink($type, $link)
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="iconfont/material-icons.css">
     <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
     <div id="main">
-        <h1 id="page-title"><i>RBGreater - RBG but in sexy</i></h1>
+        <h1 id="page-title"><i>RBGreater</i></h1>
         <div>
             <h2 class="header"><?php echo $DICT["current_livestreams"]; ?></h2>
             <div id="livestreams">
@@ -122,9 +123,9 @@ function constructLink($type, $link)
                                         foreach ($item["videos"] as $video) {
                                             echo tr(
                                                 td($video["info"]["name"])
-                                                    . td(constructLink("comb", $video["links"]["comb"]))
-                                                    . td(constructLink("pres", $video["links"]["pres"]))
-                                                    . td(constructLink("cam", $video["links"]["cam"]))
+                                                    . td(isset($video["links"]["comb"]) ? constructLink("comb", $video["links"]["comb"]) : "")
+                                                    . td(isset($video["links"]["pres"]) ? constructLink("comb", $video["links"]["pres"]) : "")
+                                                    . td(isset($video["links"]["cam"]) ? constructLink("cam", $video["links"]["cam"]) : "")
                                             );
                                         }
 

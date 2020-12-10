@@ -13,21 +13,6 @@ body {
     font-family: 'Roboto';
 }
 
-a {
-    color: var(--accent-color);
-}
-
-#main {
-    padding-top: 64px;
-}
-
-#page-title {
-    font-size: 3em;
-    color: white;
-    text-align: center;
-    font-weight: 400;
-}
-
 .rotate {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -120,16 +105,4 @@ a {
 .spoiler .event-table {
     width: 100%;
     border: none;
-}
-
-#stream-frame {
-    width: 70%;
-    margin: 0 auto;
-    border: 1px solid var(--accent-color);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-#stream {
-    width: 100%;
 }
