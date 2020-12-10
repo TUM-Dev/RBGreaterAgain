@@ -121,3 +121,15 @@ a {
     width: 100%;
     border: none;
 }
+
+#stream-frame {
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#stream {
+    width: 100%;
+}

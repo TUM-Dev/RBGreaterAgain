@@ -23,7 +23,8 @@ if ($lang == "de") {
         "legal" => "Datenschutz",
         "current_livestreams" => "Aktuelle Livestreams",
         "vod" => "Video-Aufzeichungen",
-        "vod_archive" => "Video-Aufzeichungen Archiv"
+        "vod_archive" => "Video-Aufzeichungen Archiv",
+        "stream_not_found" => "Stream nicht gefunden"
     ];
 } else {
     $DICT = [
@@ -32,6 +33,7 @@ if ($lang == "de") {
         "legal" => "Legal",
         "current_livestreams" => "Current Livestreams",
         "vod" => "Video-On-Demand",
-        "vod_archive" => "Video-On-Demand Archive"
+        "vod_archive" => "Video-On-Demand Archive",
+        "stream_not_found" => "Stream not found"
     ];
 }
