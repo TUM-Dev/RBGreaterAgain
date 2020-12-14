@@ -19,11 +19,11 @@ function constructLink($type, $link)
     $link = base64_encode($link);
 
     if ($type == "comb") {
-        return '<a href="/watch.php?s=' . $link . '"><span class="material-icons">dashboard</span></a>';
+        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons">dashboard</span></a>';
     } else if ($type == "pres") {
-        return '<a href="/watch.php?s=' . $link . '"><span class="material-icons">present_to_all</span></a>';
+        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons">present_to_all</span></a>';
     } else if ($type == "cam") {
-        return '<a href="/watch.php?s=' . $link . '"><span class="material-icons">videocam</span></a>';
+        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons">videocam</span></a>';
     }
 }
 

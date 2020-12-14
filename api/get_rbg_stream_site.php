@@ -4,8 +4,7 @@ include 'simple_html_dom.php';
 function ParseInformation($link)
 {
     // First get html of remote page
-    $URL = "https://live.rbg.tum.de/cgi-bin/streams/VOD/WiSe2021AutUFormSpr/2020_11_30_10_00/COMB";
-    $html = file_get_html($URL);
+    $html = file_get_html($link);
 
 
     $veranstaltung =  $html->find("main", 1)->find("font", 0)->find("b", 0)->innertext;
