@@ -1,4 +1,3 @@
-
 <?php
 include_once 'language.php';
 include_once 'api/get_rbg_stream_site.php';
