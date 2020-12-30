@@ -1,3 +1,4 @@
+
 <?php
 include_once 'language.php';
 include_once 'api/get_rbg_stream_site.php';
@@ -14,7 +15,7 @@ $data = strlen($link) > 0 ? ParseInformation($link) : null;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RBGreater</title>
+    <title><?php echo $data["name"]; ?> | RBGreater</title>
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
