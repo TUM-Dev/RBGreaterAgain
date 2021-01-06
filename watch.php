@@ -27,43 +27,43 @@ $data = strlen($link) > 0 ? ParseInformation($link) : null;
 </head>
 
 <body>
-    <div class="back-btn">
-        <a href="/index.php">
-            <span id="back-btn" class="material-icons">arrow_back</span>
-        </a>
-    </div>
-    <div id="main">
-        <h1 id="page-title"><i>RBGreater</i></h1>
-        <h2 id="event-title"><?php echo $data["name"]; ?></h2>
-        <h3 id="event-date"><?php echo $data["date"] . " " .  $data["time"]; ?></h3>
+<div class="back-btn">
+    <a href="/index.php">
+        <span id="back-btn" class="material-icons">arrow_back</span>
+    </a>
+</div>
+<div id="main">
+    <h1 id="page-title"><i>RBGreater</i></h1>
+    <h2 id="event-title"><?php echo $data["name"]; ?></h2>
+    <h3 id="event-date"><?php echo $data["date"] . " " . $data["time"]; ?></h3>
 
-        <?php
-        if (is_null($data["hls_url"])) {
+    <?php
+    if (is_null($data["hls_url"])) {
         ?>
-            <div class='no-entry'>
-                <p><i><?php echo $DICT['stream_not_found']; ?></i></p>
-            </div>
+        <div class='no-entry'>
+            <p><i><?php echo $DICT['stream_not_found']; ?></i></p>
+        </div>
         <?php
-        } else {
+    } else {
         ?>
-            <div id="stream-frame">
-                <video id="stream" controls></video>
-                <script>
-                    var video = document.getElementById('stream');
-                    var videoSrc = '<?php echo $data["hls_url"] ?>'
-                    if (Hls.isSupported()) {
-                        var hls = new Hls();
-                        hls.loadSource(videoSrc);
-                        hls.attachMedia(video);
-                    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                        video.src = videoSrc;
-                    }
-                </script>
-            </div>
+        <div id="stream-frame">
+            <video id="stream" controls></video>
+            <script>
+                var video = document.getElementById('stream');
+                var videoSrc = '<?php echo $data["hls_url"] ?>'
+                if (Hls.isSupported()) {
+                    var hls = new Hls();
+                    hls.loadSource(videoSrc);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = videoSrc;
+                }
+            </script>
+        </div>
         <?php
-        }
-        ?>
-    </div>
+    }
+    ?>
+</div>
 </body>
 
 </html>

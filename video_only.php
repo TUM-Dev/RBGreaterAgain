@@ -27,34 +27,34 @@ $hls_url = strlen($link) > 0 ? get_rbg_hls_link($link) : null;
 </head>
 
 <body>
-    <div id="main">
-        <?php
-        if (is_null($hls_url)) {
+<div id="main">
+    <?php
+    if (is_null($hls_url)) {
         ?>
-            <div class='no-entry'>
-                <p><i><?php echo $DICT['stream_not_found']; ?></i></p>
-            </div>
+        <div class='no-entry'>
+            <p><i><?php echo $DICT['stream_not_found']; ?></i></p>
+        </div>
         <?php
-        } else {
+    } else {
         ?>
-            <div id="stream-frame">
-                <video id="stream" controls></video>
-                <script>
-                    var video = document.getElementById('stream');
-                    var videoSrc = '<?php echo $hls_url ?>'
-                    if (Hls.isSupported()) {
-                        var hls = new Hls();
-                        hls.loadSource(videoSrc);
-                        hls.attachMedia(video);
-                    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                        video.src = videoSrc;
-                    }
-                </script>
-            </div>
+        <div id="stream-frame">
+            <video id="stream" controls></video>
+            <script>
+                var video = document.getElementById('stream');
+                var videoSrc = '<?php echo $hls_url ?>'
+                if (Hls.isSupported()) {
+                    var hls = new Hls();
+                    hls.loadSource(videoSrc);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = videoSrc;
+                }
+            </script>
+        </div>
         <?php
-        }
-        ?>
-    </div>
+    }
+    ?>
+</div>
 </body>
 
 </html>
