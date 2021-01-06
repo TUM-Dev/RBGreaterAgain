@@ -16,11 +16,11 @@ $hls_url = strlen($link) > 0 ? get_rbg_hls_link($link) : null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RBGreaterAgain</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="node_modules/hls.js/dist/hls.min.js"></script>
 
     <!-- Library stylesheets -->
-    <link rel="stylesheet" href="fonts/fonts.css">
-    <link rel="stylesheet" href="iconfont/material-icons.css">
+    <link rel="stylesheet" href="node_modules/typeface-roboto/index.css">
+    <link rel="stylesheet" href="node_modules/@material-icons/font/css/all.css">
     <!-- Custom stylesheets -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/video_only.css">
