@@ -1,11 +1,11 @@
 <?php
 include 'simple_html_dom.php';
+include_once 'CacheAccess.php';
 
 function ParseInformation($link)
 {
     // First get html of remote page
-    $html = file_get_html($link);
-
+    $html = CacheAccess::getHtml($link);
 
     $veranstaltung =  $html->find("main", 1)->find("font", 0)->find("b", 0)->innertext;
     $date =  $html->find("main", 1)->find("font", 0)->find("b", 1)->innertext;

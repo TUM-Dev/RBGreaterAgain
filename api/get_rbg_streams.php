@@ -1,9 +1,9 @@
 <?php
 include 'simple_html_dom.php';
-
+include_once 'CacheAccess.php';
 // First get html of remote page
 $URL = "https://live.rbg.tum.de/cgi-bin/streams";
-$html = file_get_html($URL);
+$html = CacheAccess::getHtml($URL);
 
 // Initialize basic data structure
 $data = array();
