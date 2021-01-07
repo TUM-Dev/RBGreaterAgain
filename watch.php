@@ -29,7 +29,7 @@ $data = strlen($link) > 0 ? ParseInformation($link) : null;
 <body>
 <div class="back-btn">
     <a href="/index.php">
-        <span id="back-btn" class="material-icons">arrow_back</span>
+        <span id="back-btn" class="material-icons md-arrow_back"></span>
     </a>
 </div>
 <div id="main">

@@ -16,11 +16,11 @@ function constructLink($type, $link) {
     $link = base64_encode($link);
 
     if ($type == "comb") {
-        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons">dashboard</span></a>';
+        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons md-dashboard"></span></a>';
     } else if ($type == "pres") {
-        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons">present_to_all</span></a>';
+        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons md-present_to_all"></span></a>';
     } else if ($type == "cam") {
-        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons">videocam</span></a>';
+        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons md-videocam"></span></a>';
     }
 }
 
@@ -102,9 +102,7 @@ function constructLink($type, $link) {
                         <div class="spoiler-header" onclick="openVod(<?php echo $index; ?>)">
                             <p class='spoiler-title'><?php echo $item["info"]["name"]; ?></p>
                             <a class='spoiler-button'>
-                                        <span class='material-icons rotate-reset' id="spoiler-button-<?php echo $index; ?>">
-                                            expand_more
-                                        </span>
+                                <span class='material-icons md-expand_more rotate-reset' id="spoiler-button-<?php echo $index; ?>"></span>
                             </a>
                         </div>
                         <div class='spoiler-content' id='spoiler-content-<?php echo $index; ?>'>
@@ -159,11 +157,7 @@ function constructLink($type, $link) {
                             <a target="_blank" href="<?php echo $item["info"]["link"]; ?>">
                                 <div class="spoiler-header">
                                     <p class='spoiler-title'><?php echo $item["info"]["name"]; ?></p>
-
-                                    <span class='material-icons rotate-reset spoiler-button '>
-                                                open_in_new
-                                            </span>
-
+                                    <span class='material-icons md-open_in_new rotate-reset spoiler-button'></span>
                                 </div>
                             </a>
                         </div>
