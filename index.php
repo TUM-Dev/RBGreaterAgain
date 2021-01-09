@@ -16,11 +16,11 @@ function constructLink($type, $link) {
     $link = base64_encode($link);
 
     if ($type == "comb") {
-        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons md-dashboard"></span></a>';
+        return '<a href="./watch/' . $link . '"><span class="material-icons md-dashboard"></span></a>';
     } else if ($type == "pres") {
-        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons md-present_to_all"></span></a>';
+        return '<a href="./watch/' . $link . '"><span class="material-icons md-present_to_all"></span></a>';
     } else if ($type == "cam") {
-        return '<a href="./watch.php?s=' . $link . '"><span class="material-icons md-videocam"></span></a>';
+        return '<a href="./watch/' . $link . '"><span class="material-icons md-videocam"></span></a>';
     }
 }
 
@@ -34,15 +34,15 @@ function constructLink($type, $link) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RBGreater</title>
 
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/content_handler.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/js/content_handler.js"></script>
 
     <!-- Library stylesheets -->
-    <link rel="stylesheet" href="node_modules/typeface-roboto/index.css">
-    <link rel="stylesheet" href="node_modules/@material-icons/font/css/all.css">
+    <link rel="stylesheet" href="/node_modules/typeface-roboto/index.css">
+    <link rel="stylesheet" href="/node_modules/@material-icons/font/css/all.css">
     <!-- Custom stylesheets -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>

@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^/?watch/(.*?)/?$ /watch.php?s=$1 [L]
+RewriteRule ^/?video_only/(.*?)/?$ /video_only.php?s=$1 [L]
