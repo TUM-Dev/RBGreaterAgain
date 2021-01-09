@@ -1,10 +1,9 @@
 <?php
 include_once 'language.php';
 include_once 'api/get_rbg_stream_site.php';
-?>
+include_once 'api/CacheAccess.php';
 
-<?php
-$link = base64_decode($_GET["s"]);
+$link = CacheAccess::getVideoUrl($_GET["s"]);
 $data = strlen($link) > 0 ? ParseInformation($link) : null;
 ?>
 

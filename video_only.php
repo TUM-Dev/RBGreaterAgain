@@ -1,10 +1,9 @@
 <?php
 include_once 'language.php';
 include_once 'api/get_rbg_hls_link.php';
-?>
+include_once 'api/CacheAccess.php';
 
-<?php
-$link = base64_decode($_GET["s"]);
+$link = CacheAccess::getVideoUrl($_GET["s"]);
 $hls_url = strlen($link) > 0 ? get_rbg_hls_link($link) : null;
 ?>
 
