@@ -4,7 +4,12 @@ include_once 'api/get_rbg_stream_site.php';
 include_once 'api/CacheAccess.php';
 
 $link = CacheAccess::getVideoUrl($_GET["s"]);
-$data = strlen($link) > 0 ? ParseInformation($link) : null;
+if (strlen($link) > 0){
+    $data = ParseInformation($link);
+}else {
+    $data = null;
+    header("HTTP/1.0 404 Not Found");
+}
 ?>
 
 <!DOCTYPE html>

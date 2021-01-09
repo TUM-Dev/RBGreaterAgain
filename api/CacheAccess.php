@@ -40,8 +40,7 @@ class CacheAccess {
     static function getVideoUrl($videoShortLink) {
         if (!apcu_exists($videoShortLink)) {
             //error, this should exist.
-            header("HTTP/1.0 404 Not Found");
-            return "not found";
+            return "";
         } else {
             return apcu_fetch($videoShortLink);
         }
