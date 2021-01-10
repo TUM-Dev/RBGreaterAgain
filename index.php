@@ -177,7 +177,7 @@ function constructLink($type, $link)
                     foreach ($STREAMS["vod_archive"] as $item) {
                         ?>
                         <div class='spoiler'>
-                            <a target="_blank" href="<?php echo $item["info"]["link"]; ?>">
+                            <a target="_blank" rel="noopener" href="<?php echo $item["info"]["link"]; ?>">
                                 <div class="spoiler-header">
                                     <p class='spoiler-title'><?php echo $item["info"]["name"]; ?></p>
                                     <span class='material-icons md-open_in_new rotate-reset spoiler-button'></span>
