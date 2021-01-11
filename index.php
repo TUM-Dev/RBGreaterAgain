@@ -13,8 +13,6 @@ function tr($el) {
 
 
 function constructLink($type, $link) {
-    $link = CacheAccess::getVideoShortId($link);
-
     if ($type == "comb") {
         return '<a href="./watch/' . $link . '"><span class="material-icons md-dashboard"></span></a>';
     } else if ($type == "pres") {
@@ -102,7 +100,8 @@ function constructLink($type, $link) {
                         <div class="spoiler-header" onclick="openVod(<?php echo $index; ?>)">
                             <p class='spoiler-title'><?php echo $item["info"]["name"]; ?></p>
                             <a class='spoiler-button'>
-                                <span class='material-icons md-expand_more rotate-reset' id="spoiler-button-<?php echo $index; ?>"></span>
+                                <span class='material-icons md-expand_more rotate-reset'
+                                      id="spoiler-button-<?php echo $index; ?>"></span>
                             </a>
                         </div>
                         <div class='spoiler-content' id='spoiler-content-<?php echo $index; ?>'>
@@ -119,7 +118,7 @@ function constructLink($type, $link) {
                                     echo tr(
                                         td($video["info"]["name"])
                                         . td(isset($video["links"]["comb"]) ? constructLink("comb", $video["links"]["comb"]) : "")
-                                        . td(isset($video["links"]["pres"]) ? constructLink("comb", $video["links"]["pres"]) : "")
+                                        . td(isset($video["links"]["pres"]) ? constructLink("pres", $video["links"]["pres"]) : "")
                                         . td(isset($video["links"]["cam"]) ? constructLink("cam", $video["links"]["cam"]) : "")
                                     );
                                 }

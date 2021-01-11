@@ -1,6 +1,8 @@
 <?php
 
 class CacheAccess {
+    const SHORTLINKPREFIXHTML = "shortlink_to_html_";
+    const SHORTLINKPREFIXURL = "shortlink_to_url_";
 
     /**
      * Loads html from url or cache, if present.
@@ -9,11 +11,12 @@ class CacheAccess {
      * @return false|file_get_html|mixed
      */
     static function getHtml($url, $ttl = 60) {
-        if (apcu_exists($url)) {
-            $html = apcu_fetch($url);
+        $shortLink = self::SHORTLINKPREFIXHTML . self::getVideoShortId($url); // get and store the shortlink in the cache
+        if (apcu_exists($shortLink)) {
+            $html = apcu_fetch($shortLink);
         } else {
             $html = file_get_html($url);
-            apcu_add($url, $html, $ttl);
+            apcu_add($shortLink, $html, $ttl);
         }
         return $html;
     }
@@ -26,8 +29,8 @@ class CacheAccess {
     static function getVideoShortId($videoUrl) {
         // video short link is last 7 characters of the urls sha1
         $videoShortLink = substr(sha1($videoUrl), -7);
-        if (!apcu_exists($videoShortLink)) {
-            apcu_add($videoShortLink, $videoUrl);
+        if (!apcu_exists(self::SHORTLINKPREFIXURL . $videoShortLink)) {
+            apcu_add(self::SHORTLINKPREFIXURL . $videoShortLink, $videoUrl);
         }
         return $videoShortLink;
     }
@@ -38,11 +41,11 @@ class CacheAccess {
      * @return false|mixed
      */
     static function getVideoUrl($videoShortLink) {
-        if (!apcu_exists($videoShortLink)) {
+        if (!apcu_exists(self::SHORTLINKPREFIXURL . $videoShortLink)) {
             //error, this should exist.
             return "";
         } else {
-            return apcu_fetch($videoShortLink);
+            return apcu_fetch(self::SHORTLINKPREFIXURL . $videoShortLink);
         }
     }
 

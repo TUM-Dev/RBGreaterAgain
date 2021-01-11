@@ -57,15 +57,15 @@ for ($index; !$archiveFound; $index++) {
                 $element["info"] = [];
                 $element["links"] = [];
                 $element["info"]["name"] = FormatText($link[0]->innertext);
-                $element["links"]["overall"] = FormatLink($link[0]->attr["href"]);
+                $element["links"]["overall"] = FormatAndShortenLink($link[0]->attr["href"]);
                 if (sizeof($link) > 1) {
-                    $element["links"]["comb"] = FormatLink($link[1]->attr["href"]);
+                    $element["links"]["comb"] = FormatAndShortenLink($link[1]->attr["href"]);
                 }
                 if (sizeof($link) > 2) {
-                    $element["links"]["pres"] = FormatLink($link[2]->attr["href"]);
+                    $element["links"]["pres"] = FormatAndShortenLink($link[2]->attr["href"]);
                 }
                 if (sizeof($link) > 3) {
-                    $element["links"]["cam"] = FormatLink($link[3]->attr["href"]);
+                    $element["links"]["cam"] = FormatAndShortenLink($link[3]->attr["href"]);
                 }
             }
             $data["livestreams"][] = $element;
@@ -80,15 +80,15 @@ for ($index; !$archiveFound; $index++) {
                     $retEntry = [];
                     $link = $videoEntry->find('a');
                     $retEntry["info"]["name"] = FormatText($link[0]->innertext);
-                    $retEntry["links"]["overall"] = FormatLink($link[0]->attr["href"]);
+                    $retEntry["links"]["overall"] = FormatAndShortenLink($link[0]->attr["href"]);
                     if (sizeof($link) > 1) {
-                        $retEntry["links"]["comb"] = FormatLink($link[1]->attr["href"]);
+                        $retEntry["links"]["comb"] = FormatAndShortenLink($link[1]->attr["href"]);
                     }
                     if (sizeof($link) > 2) {
-                        $retEntry["links"]["pres"] = FormatLink($link[2]->attr["href"]);
+                        $retEntry["links"]["pres"] = FormatAndShortenLink($link[2]->attr["href"]);
                     }
                     if (sizeof($link) > 3) {
-                        $retEntry["links"]["cam"] = FormatLink($link[3]->attr["href"]);
+                        $retEntry["links"]["cam"] = FormatAndShortenLink($link[3]->attr["href"]);
                     }
                     $element["videos"][] = $retEntry;
                 }
@@ -105,12 +105,15 @@ for ($index; !$archiveFound; $index++) {
         }
     }
 }
-
 function FormatLink($string) {
     if (substr($string, 0, 4) === "http") {
         return FormatText($string);
     }
     return FormatText("https://live.rbg.tum.de$string");
+}
+
+function FormatAndShortenLink($string) {
+    return CacheAccess::getVideoShortId(FormatLink($string));
 }
 
 function FormatText($string) {
