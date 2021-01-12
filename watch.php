@@ -35,7 +35,7 @@ $data = strlen($link) > 0 ? ParseInformation($link) : null;
 <div id="main">
     <h1 id="page-title">
         <a href="/" aria-label="RBGreater Logo">
-            <svg width="30rem" alignment-baseline="baseline" id="logo">
+            <svg width="30rem" id="logo">
                 <use href="static/logo.svg#RGBreaterLogo"/>
             </svg>
         </a>
