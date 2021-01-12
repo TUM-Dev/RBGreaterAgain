@@ -1,7 +1,5 @@
 <?php
 include 'simple_html_dom.php';
-include_once 'CacheAccess.php';
-
 
 function ParseInformation($link) {
     $CACHEKEY = "get_rbg_stream_site";

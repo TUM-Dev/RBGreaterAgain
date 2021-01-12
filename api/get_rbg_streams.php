@@ -1,6 +1,6 @@
 <?php
 include 'simple_html_dom.php';
-include_once 'CacheAccess.php';
+include_once 'ShortLinkAccess.php';
 
 $CACHEKEY = "get_rbg_streams";
 $CACETTL = 60;
@@ -127,7 +127,7 @@ function FormatLink($string) {
 }
 
 function FormatAndShortenLink($string) {
-    return CacheAccess::getVideoShortId(FormatLink($string));
+    return ShortLinkAccess::getVideoShortId(FormatLink($string));
 }
 
 function FormatText($string) {

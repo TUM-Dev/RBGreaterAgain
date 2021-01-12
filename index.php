@@ -1,7 +1,6 @@
 <?php
 include_once 'language.php';
 include_once 'api/get_rbg_streams.php';
-include_once 'api/CacheAccess.php';
 
 function td($el) {
     return "<td>$el</td>";

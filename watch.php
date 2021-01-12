@@ -1,9 +1,9 @@
 <?php
 include_once 'language.php';
 include_once 'api/get_rbg_stream_site.php';
-include_once 'api/CacheAccess.php';
+include_once 'api/ShortLinkAccess.php';
 
-$link = CacheAccess::getVideoUrl($_GET["s"]);
+$link = ShortLinkAccess::getVideoUrl($_GET["s"]);
 if (strlen($link) > 0) {
     $data = ParseInformation($link);
 } else {

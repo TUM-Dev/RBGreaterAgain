@@ -1,6 +1,6 @@
 <?php
 
-class CacheAccess {
+class ShortLinkAccess {
     const SHORTLINKPREFIXURL = "shortlink_to_url_";
 
     /**
