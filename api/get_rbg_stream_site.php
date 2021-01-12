@@ -2,7 +2,7 @@
 include 'simple_html_dom.php';
 
 function ParseInformation($link) {
-    $CACHEKEY = "get_rbg_stream_site";
+    $CACHEKEY = "get_rbg_stream_site_" . $link;
     if (apcu_exists($CACHEKEY)) {
         return apcu_fetch($CACHEKEY);
     } else {
@@ -13,7 +13,6 @@ function ParseInformation($link) {
         $date = $html->find("main", 1)->find("font", 0)->find("b", 1)->innertext;
         $time = $html->find("main", 1)->find("font", 0)->find("b", 2)->innertext;
 
-        $link;
         if ($html) {
             $matches = [];
 
