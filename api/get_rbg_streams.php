@@ -7,6 +7,11 @@ $CACETTL = 60;
 if (apcu_exists($CACHEKEY)) {
     $STREAMS = apcu_fetch($CACHEKEY);
 } else {
+    $STREAMS = ParseStreams();
+    apcu_add($CACHEKEY, $STREAMS, $CACETTL);
+}
+
+function ParseStreams() {
     // First get html of remote page
     $URL = "https://live.rbg.tum.de/cgi-bin/streams";
     $html = file_get_html($URL);
@@ -111,10 +116,7 @@ if (apcu_exists($CACHEKEY)) {
             }
         }
     }
-
-
-    $STREAMS = $data;
-    apcu_add($CACHEKEY, $STREAMS, $CACETTL);
+    return $data;
 }
 
 function FormatLink($string) {
