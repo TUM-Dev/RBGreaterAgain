@@ -24,8 +24,9 @@ function ParseInformation($link) {
 
             $matches = [];
 
+            // this matches the stream url from a Streaming site that contains just a specific stream (eg. cam, pres...)
+            // the first match is the entire command to start the stream, the second match is just the url.
             preg_match('/MMstartStream.*\'(.+)\'/', $html, $matches);
-
             if (sizeof($matches) >= 2) {
                 $link = $matches[1];
             }
