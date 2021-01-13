@@ -1,21 +1,15 @@
-name: CI
+name: Lint PHP
 on:
-  pull_request:
-    branches: master
+  push:
+    branches: actions
 jobs:
-  build:
+  phplint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
-      - name: Build and push Docker images
-        uses: docker/build-push-action@v1.1.0
+      - name: PHPLint
+        uses: overtrue/phplint@master
         with:
-          username: ${{ github.actor }}
-          password: ${{ github.token }}
-          registry: docker.pkg.github.com
-          repository: tum-dev/rbgreateragain/sexy-streams-server
-          tags: dev
-          tag_with_ref: true
-          tag_with_sha: true
-          add_git_labels: true
+          path: .
+          options: --exclude=*.log
