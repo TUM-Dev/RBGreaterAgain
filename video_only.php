@@ -1,10 +1,10 @@
 <?php
 include_once 'language.php';
-include_once 'api/get_rbg_hls_link.php';
+include_once 'api/get_rbg_stream_site.php';
 include_once 'api/ShortLinkAccess.php';
 
 $link = ShortLinkAccess::getVideoUrl($_GET["s"]);
-$hls_url = strlen($link) > 0 ? get_rbg_hls_link($link) : null;
+$hls_url = ParseInformation($link)["hls_url"];
 ?>
 
 <!DOCTYPE html>

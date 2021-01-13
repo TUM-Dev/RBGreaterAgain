@@ -2,13 +2,14 @@
 include 'simple_html_dom.php';
 include_once 'ShortLinkAccess.php';
 
-$CACHEKEY = "get_rbg_streams";
-$CACETTL = 60;
-if (apcu_exists($CACHEKEY)) {
-    $STREAMS = apcu_fetch($CACHEKEY);
+const CACHEKEY = "get_rbg_streams";
+const CACETTL = 60;
+
+if (apcu_exists(CACHEKEY)) {
+    $STREAMS = apcu_fetch(CACHEKEY);
 } else {
     $STREAMS = ParseStreams();
-    apcu_add($CACHEKEY, $STREAMS, $CACETTL);
+    apcu_add(CACHEKEY, $STREAMS, CACETTL);
 }
 
 function ParseStreams() {
