@@ -1,7 +1,7 @@
 name: Lint PHP
 on:
-  push:
-    branches: actions
+  pull_request:
+    branches: master
 jobs:
   phplint:
     runs-on: ubuntu-latest
