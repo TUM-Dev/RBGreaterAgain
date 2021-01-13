@@ -24,11 +24,19 @@ a {
     text-align: center;
 }
 
+#logo {
+    width: 30rem;
+    min-height: 7.3rem;
+    max-height: 7.4rem;
+}
+
 @media screen and (max-width: 800px) {
     #page-title {
         padding-top: 0;
     }
     #logo{
-        width: max(20%,15rem);
+        width: 10rem;
+        min-height: 2.4rem;
+        max-height: 2.5rem;
     }
 }

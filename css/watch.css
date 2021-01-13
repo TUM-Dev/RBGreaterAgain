@@ -37,12 +37,9 @@
     left: 0px;
     font-size: 3em;
 }
+
 @media screen and (max-width: 800px) {
     #page-title {
-        padding-top: 0;
         text-align: right;
-    }
-    #logo{
-        width: max(20%,10rem);
     }
 }
