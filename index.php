@@ -49,7 +49,7 @@ function constructLink($type, $link) {
     <h1 id="page-title">
         <a href="/" aria-label="RBGreater Logo">
             <svg id="logo">
-                <use href="static/logo.svg#RGBreaterLogo"/>
+                <use href="/static/logo.svg#RGBreaterLogo"/>
             </svg>
         </a>
     </h1>
