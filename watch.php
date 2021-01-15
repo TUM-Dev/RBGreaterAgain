@@ -1,11 +1,15 @@
 <?php
 include_once 'language.php';
 include_once 'api/get_rbg_stream_site.php';
-?>
+include_once 'api/ShortLinkAccess.php';
 
-<?php
-$link = base64_decode($_GET["s"]);
-$data = strlen($link) > 0 ? ParseInformation($link) : null;
+$link = ShortLinkAccess::getVideoUrl($_GET["s"]);
+if (strlen($link) > 0) {
+    $data = ParseInformation($link);
+} else {
+    $data = null;
+    header("HTTP/1.0 404 Not Found");
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,19 +20,19 @@ $data = strlen($link) > 0 ? ParseInformation($link) : null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $data["name"]; ?> | RBGreater</title>
 
-    <script src="node_modules/hls.js/dist/hls.min.js"></script>
+    <script src="/node_modules/hls.js/dist/hls.min.js"></script>
 
     <!-- Library stylesheets -->
-    <link rel="stylesheet" href="node_modules/typeface-roboto/index.css">
-    <link rel="stylesheet" href="node_modules/@material-icons/font/css/all.css">
+    <link rel="stylesheet" href="/node_modules/typeface-roboto/index.css">
+    <link rel="stylesheet" href="/node_modules/@material-icons/font/css/all.css">
     <!-- Custom stylesheets -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/watch.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/watch.css">
 </head>
 
 <body>
 <div class="back-btn">
-    <a href="/index.php">
+    <a href="/">
         <span id="back-btn" class="material-icons md-arrow_back"></span>
     </a>
 </div>
