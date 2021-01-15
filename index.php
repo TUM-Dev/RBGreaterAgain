@@ -2,16 +2,19 @@
 include_once 'language.php';
 include_once 'api/get_rbg_streams.php';
 
-function td($el) {
+function td($el)
+{
     return "<td>$el</td>";
 }
 
-function tr($el) {
+function tr($el)
+{
     return "<tr>$el</tr>";
 }
 
 
-function constructLink($type, $link) {
+function constructLink($type, $link)
+{
 
     $link = base64_encode($link);
 
@@ -47,7 +50,13 @@ function constructLink($type, $link) {
 
 <body>
 <div id="main">
-    <h1 id="page-title"><i>RBGreater</i></h1>
+    <h1 id="page-title">
+        <a href="/" aria-label="RBGreater Logo">
+            <svg id="logo">
+                <use href="static/logo.svg#RGBreaterLogo"/>
+            </svg>
+        </a>
+    </h1>
     <div>
         <h2 class="header"><?php echo $DICT["current_livestreams"]; ?></h2>
         <div id="livestreams">
@@ -102,7 +111,8 @@ function constructLink($type, $link) {
                         <div class="spoiler-header" onclick="openVod(<?php echo $index; ?>)">
                             <p class='spoiler-title'><?php echo $item["info"]["name"]; ?></p>
                             <a class='spoiler-button'>
-                                <span class='material-icons md-expand_more rotate-reset' id="spoiler-button-<?php echo $index; ?>"></span>
+                                <span class='material-icons md-expand_more rotate-reset'
+                                      id="spoiler-button-<?php echo $index; ?>"></span>
                             </a>
                         </div>
                         <div class='spoiler-content' id='spoiler-content-<?php echo $index; ?>'>
@@ -154,7 +164,7 @@ function constructLink($type, $link) {
                     foreach ($STREAMS["vod_archive"] as $item) {
                         ?>
                         <div class='spoiler'>
-                            <a target="_blank" href="<?php echo $item["info"]["link"]; ?>">
+                            <a target="_blank" rel="noopener" href="<?php echo $item["info"]["link"]; ?>">
                                 <div class="spoiler-header">
                                     <p class='spoiler-title'><?php echo $item["info"]["name"]; ?></p>
                                     <span class='material-icons md-open_in_new rotate-reset spoiler-button'></span>
