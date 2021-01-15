@@ -1,7 +1,8 @@
 :root {
     --background-color: #0b0c10;
     --accent-color: #ccfffc;
-    --primary-color: #FCFCFC;
+    --primary-color: #fcfcfc;
+    --primary-color2: #1565c0;
 }
 
 html,
@@ -19,9 +20,23 @@ a {
 
 
 #page-title {
-    padding-top: 64px;
-    font-size: 3em;
-    color: white;
+    padding: 16px;
     text-align: center;
-    font-weight: 400;
+}
+
+#logo {
+    width: 30rem;
+    min-height: 7.3rem;
+    max-height: 7.4rem;
+}
+
+@media screen and (max-width: 800px) {
+    #page-title {
+        padding-top: 0;
+    }
+    #logo{
+        width: 10rem;
+        min-height: 2.4rem;
+        max-height: 2.5rem;
+    }
 }

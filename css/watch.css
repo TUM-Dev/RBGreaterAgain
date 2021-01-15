@@ -4,10 +4,6 @@
     --primary-color: #FCFCFC;
 }
 
-#page-title {
-    padding-top: 16px;
-}
-
 #stream-frame {
     width: 70%;
     margin: 0 auto;
@@ -40,4 +36,10 @@
     top: 0px;
     left: 0px;
     font-size: 3em;
+}
+
+@media screen and (max-width: 800px) {
+    #page-title {
+        text-align: right;
+    }
 }

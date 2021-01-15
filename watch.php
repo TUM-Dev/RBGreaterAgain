@@ -37,7 +37,13 @@ if (strlen($link) > 0) {
     </a>
 </div>
 <div id="main">
-    <h1 id="page-title"><i>RBGreater</i></h1>
+    <h1 id="page-title">
+        <a href="/" aria-label="RBGreater Logo">
+            <svg id="logo">
+                <use href="static/logo.svg#RGBreaterLogo"/>
+            </svg>
+        </a>
+    </h1>
     <h2 id="event-title"><?php echo $data["name"]; ?></h2>
     <h3 id="event-date"><?php echo $data["date"] . " " . $data["time"]; ?></h3>
 
