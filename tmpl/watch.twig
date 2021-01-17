@@ -1,35 +1,31 @@
-{% if notFound %}
-    {% include '404.twig' %}
-{% else %}
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
-    {% include 'head.twig' with {'title': name} %}
+{% include 'head.twig' with {'title': name} %}
 
-    <body class="d-flex flex-column" style="min-height: 100vh;">
-    <div style="flex: 1;">
-        {% include 'navbar.html' %}
-        <div class="container hero main-content mt-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400"
-             data-aos-once="true">
-            <video class="w-100 pb-2" id="stream" controls></video>
-            <script>
-                var video = document.getElementById('stream');
-                var videoSrc = '{{ hls_url }}';
-                if (Hls.isSupported()) {
-                    var hls = new Hls();
-                    hls.loadSource(videoSrc);
-                    hls.attachMedia(video);
-                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    video.src = videoSrc;
-                }
-            </script>
-            <h1 id="video-title">{{ name }}</h1>
-            <h2 id="video-subtitle">{{ date }} | {{ time }} </h2>
-        </div>
+<body class="d-flex flex-column" style="min-height: 100vh;">
+<div style="flex: 1;">
+    {% include 'navbar.html' %}
+    <div class="container hero main-content mt-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400"
+         data-aos-once="true">
+        <video class="w-100 pb-2" id="stream" controls></video>
+        <script>
+            var video = document.getElementById('stream');
+            var videoSrc = '{{ hls_url }}';
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoSrc;
+            }
+        </script>
+        <h1 id="video-title">{{ name }}</h1>
+        <h2 id="video-subtitle">{{ date }} | {{ time }} </h2>
     </div>
-    {% include 'footer.twig' %}
+</div>
+{% include 'footer.twig' %}
 
-    </body>
+</body>
 
-    </html>
-{% endif %}
+</html>
