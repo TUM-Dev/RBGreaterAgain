@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+{% include 'head.twig' with {'title': '404: Not Found.'} %}
+<body class="d-flex flex-column" style="min-height: 100vh;">
+<div style="flex:1">
+    {% include 'navbar.html' %}
+    <div class="container hero main-content p-lg-2 mt-2">
+        <h3 class="text-center">The resource you tried to access is not available right now.<br>
+            Try loading the homepage and come back :)</h3>
+        <h4 class="text-center">If you believe this is an error, please report it
+            <a style="color:white" href="https://github.com/TUM-Dev/RBGreaterAgain/issues/new">here</a>.
+        </h4>
+    </div>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

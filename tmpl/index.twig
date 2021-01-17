@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+{% include 'head.twig' %}
+
+<body class="d-flex flex-column" style="min-height: 100vh;">
+<div style="flex: 1;">
+    {% include 'navbar.html' %}
+    <div class="container hero main-content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250"
+         data-aos-once="true">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3 class="subtitle">Current Livestreams<br></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% if livestreams is empty %}
+                    <h5><i>No active streams</i></h5>
+                {% else %}
+                    <div class="table-responsive" style="border-top-style: none;">
+                        <table class="table text-white-50">
+                            <thead>
+                            <tr>
+                                <th class="text-left border-0">Title</th>
+                                <th class="border-0 text-center">Comb</th>
+                                <th class="border-0 text-center">Pres</th>
+                                <th class="border-0 text-center">Cam</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for livestream in livestreams %}
+                                <tr>
+                                    <td class="text-left tr-title">{{ livestream.info.name }}</td>
+                                    <td class="align-middle text-center"><a
+                                                href="watch/{{ livestream.videos.links.comb }}"><i
+                                                    class="fa fa-th-large"></i></a></td>
+                                    <td class="align-middle text-center"><a
+                                                href="watch/{{ livestream.videos.links.pres }}"><i
+                                                    class="fa fa-pencil-square-o"></i></a></td>
+                                    <td class="align-middle text-center"><a
+                                                href="watch/{{ livestream.videos.links.cam }}"><i
+                                                    class="fa fa-video-camera"></i></a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3 class="subtitle">Video On Demand<br></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-8 offset-md-2 p-0">
+                <div role="tablist" id="accordion-1">
+                    {% for vodElem in vod %}
+                        <div class="card">
+                            <div class="card-header" role="tab">
+                                <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false"
+                                                    aria-controls="accordion-1 .item-{{ loop.index }}"
+                                                    href="#accordion-1 .item-{{ loop.index }}">
+                                        {{ vodElem.info.name }}<br></a></h5>
+                            </div>
+                            <div class="collapse item-{{ loop.index }}" role="tabpanel" data-parent="#accordion-1">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table text-white-50">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-left border-0">Title</th>
+                                                <th class="border-0 text-center">Comb</th>
+                                                <th class="border-0 text-center">Pres</th>
+                                                <th class="border-0 text-center">Cam</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for video in vodElem.videos %}
+                                                <tr>
+                                                    <td class="text-left tr-title">
+                                                        {{ video.info.name | raw }}
+                                                    </td>
+                                                    <td class="align-middle text-center"><a
+                                                                href="watch/{{ video.links.comb }}"><i
+                                                                    class="fa fa-th-large"></i></a></td>
+                                                    <td class="align-middle text-center"><a
+                                                                href="watch/{{ video.links.pres }}"><i
+                                                                    class="fa fa-pencil-square-o"></i></a></td>
+                                                    <td class="align-middle text-center"><a
+                                                                href="watch/{{ video.links.cam }}"><i
+                                                                    class="fa fa-video-camera"></i></a></td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3 class="subtitle">Video On Demand Archive<br></h3>
+            </div>
+        </div>
+        <div class="row">
+            {% for vodElem in vod_archive %}
+                <div class="card col-md-8 offset-md-2">
+                    <div class="card-header" role="tab">
+                        <a href="{{ vodElem.info.link }}">
+                            <h5 class="mb-0"><i class="fa fa-external-link"></i> {{ vodElem.info.name }}<br></h5>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
+</body>
+
+</html>

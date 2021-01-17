@@ -1,0 +1,29 @@
+{% if notFound %}
+    {% include '404.twig' %}
+{% else %}
+    <!DOCTYPE html>
+    <html>
+
+    {% include 'head.twig' with {'title': name} %}
+
+    <body>
+    <div id="main">
+        <div id="stream-frame">
+            <video id="stream" controls></video>
+            <script>
+                var video = document.getElementById('stream');
+                var videoSrc = '{{ hls_url }}';
+                if (Hls.isSupported()) {
+                    var hls = new Hls();
+                    hls.loadSource(videoSrc);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = videoSrc;
+                }
+            </script>
+        </div>
+    </div>
+    </body>
+
+    </html>
+{% endif %}

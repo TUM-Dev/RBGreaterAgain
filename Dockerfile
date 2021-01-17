@@ -3,7 +3,14 @@ WORKDIR /app
 RUN apk add npm
 COPY ./package.json /app
 COPY ./package-lock.json /app
-RUN npm i --no-dev
+# templates are needed in order to compile css
+COPY ./tmpl /app/tmpl
+RUN npm i --no-dev --unsafe-perm
+
+FROM composer:1.9 as composer
+COPY ./composer.json /app
+COPY ./composer.lock /app
+RUN composer install --no-dev
 
 FROM php:7.4-apache
 RUN pecl install APCu-5.1.18
@@ -13,3 +20,5 @@ RUN a2enmod rewrite
 WORKDIR /var/www/html/
 COPY ./ /var/www/html/
 COPY --from=npm /app/node_modules ./node_modules
+
+COPY --from=composer /app/vendor ./vendor
