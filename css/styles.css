@@ -10,6 +10,12 @@
 body {
     min-height: 100vh;
     text-align: left;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.navbar{
+    background-color: var(--accent-color);
 }
 
 .row {
@@ -22,10 +28,6 @@ a:hover {
 }
 
 a {
-    color: var(--text-color);
-}
-
-body {
     color: var(--text-color);
 }
 
@@ -60,11 +62,6 @@ body {
     border-top: 1px solid var(--border-color);
 }
 
-.card-header {
-    padding-left: .75rem;
-    padding: .5rem;
-}
-
 .h3, h3 {
     text-align: center;
 }
@@ -85,4 +82,44 @@ body {
     #logo {
         max-height: 3.5rem;
     }
+}
+
+.footer-basic {
+    padding: 20px 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--accent-color);
+    box-shadow: 0px 0px 2px 2px black;
+    margin-top: 3rem;
+}
+
+.footer-basic ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.footer-basic li {
+    padding: 0 10px;
+}
+
+.footer-basic ul a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer-basic ul a:hover {
+    opacity: 1;
+}
+
+.footer-basic .copyright {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-color);
+    margin-bottom: 0;
 }
