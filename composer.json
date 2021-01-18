@@ -2,7 +2,7 @@
     "name": "tum-dev/rbgreater",
     "description": "This project was created to redesign the rbglive page (https://live.rbg.tum.de/).",
     "type": "project",
-    "license": "GNU3",
+    "license": "GPL-3.0-only",
     "require": {
         "twig/twig": "^3.0"
     }

@@ -12,7 +12,7 @@
     "url": "git+https://github.com/TUM-Dev/RBGreaterAgain.git"
   },
   "author": "",
-  "license": "GNU3",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/TUM-Dev/RBGreaterAgain/issues"
   },
