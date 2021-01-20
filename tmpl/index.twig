@@ -3,7 +3,7 @@
 
 {% include 'head.twig' %}
 
-<body class="d-flex flex-column" style="min-height: 100vh;">
+<body class="d-flex flex-column">
 <div style="flex: 1;">
     {% include 'navbar.twig' %}
     <div class="container hero main-content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250"
@@ -85,15 +85,24 @@
                                                     <td class="text-left tr-title">
                                                         {{ video.info.name | raw }}
                                                     </td>
-                                                    <td class="align-middle text-center"><a
-                                                                href="watch/{{ video.links.comb }}"><i
-                                                                    class="fa fa-th-large"></i></a></td>
-                                                    <td class="align-middle text-center"><a
-                                                                href="watch/{{ video.links.pres }}"><i
-                                                                    class="fa fa-pencil-square-o"></i></a></td>
-                                                    <td class="align-middle text-center"><a
-                                                                href="watch/{{ video.links.cam }}"><i
-                                                                    class="fa fa-video-camera"></i></a></td>
+                                                    <td class="align-middle text-center">
+                                                        {% if video.links.comb is defined %} {# check if recordings exist. Some lectures may only have pres #}
+                                                            <a href="watch/{{ video.links.comb }}">
+                                                                <i class="fa fa-th-large"></i></a>
+                                                        {% endif %}
+                                                    </td>
+                                                    <td class="align-middle text-center">
+                                                        {% if video.links.pres is defined %}
+                                                            <a href="watch/{{ video.links.pres }}">
+                                                                <i class="fa fa-pencil-square-o"></i></a>
+                                                        {% endif %}
+                                                    </td>
+                                                    <td class="align-middle text-center">
+                                                        {% if video.links.cam is defined %}
+                                                            <a href="watch/{{ video.links.cam }}">
+                                                                <i class="fa fa-pencil-square-o"></i></a>
+                                                        {% endif %}
+                                                    </td>
                                                 </tr>
                                             {% endfor %}
                                             </tbody>
