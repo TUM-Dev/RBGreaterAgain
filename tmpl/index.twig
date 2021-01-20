@@ -59,12 +59,14 @@
                 <div role="tablist" id="accordion-1">
                     {% for vodElem in vod %}
                         <div class="card">
-                            <div class="card-header" role="tab">
-                                <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false"
-                                                    aria-controls="accordion-1 .item-{{ loop.index }}"
-                                                    href="#accordion-1 .item-{{ loop.index }}">
-                                        {{ vodElem.info.name }}<br></a></h5>
-                            </div>
+                            <a data-toggle="collapse" aria-expanded="false"
+                               aria-controls="accordion-1 .item-{{ loop.index }}"
+                               href="#accordion-1 .item-{{ loop.index }}">
+                                <div class="card-header" role="tab">
+                                    <h5 class="mb-0">
+                                        {{ vodElem.info.name }}<br></h5>
+                                </div>
+                            </a>
                             <div class="collapse item-{{ loop.index }}" role="tabpanel" data-parent="#accordion-1">
                                 <div class="card-body">
                                     <div class="table-responsive">
