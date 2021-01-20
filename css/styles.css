@@ -32,7 +32,13 @@ a {
 }
 
 #video-title {
-    font-size: 2rem;
+    font-size: 1.4rem;
+}
+
+@media screen and (min-width: 576px) {
+    #video-title {
+        font-size: 2rem;
+    }
 }
 
 #video-subtitle {

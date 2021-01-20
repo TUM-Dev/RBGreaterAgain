@@ -20,8 +20,18 @@
                 video.src = videoSrc;
             }
         </script>
-        {# RBG occasionally uses special entities like &amp, using raw here so they won't get escaped #}
-        <h1 id="video-title">{{ name | raw }}</h1>
+        <div class="d-flex flex-column-reverse flex-lg-row justify-content-between">
+            {# RBG occasionally uses special entities like &amp, using raw here so they won't get escaped #}
+            <h1 id="video-title">{{ name | raw }}</h1>
+            <button class="btn btn-outline-secondary dropdown-toggle mb-2 mb-lg-0 mb-xl-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Playback Speed</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" onclick="document.getElementById('stream').playbackRate=0.5;">50%</a>
+                <a class="dropdown-item" onclick="document.getElementById('stream').playbackRate=0.75;">75%</a>
+                <a class="dropdown-item" onclick="document.getElementById('stream').playbackRate=1;">100%</a>
+                <a class="dropdown-item" onclick="document.getElementById('stream').playbackRate=1.25;">125%</a>
+                <a class="dropdown-item" onclick="document.getElementById('stream').playbackRate=1.5;">150%</a>
+            </div>
+        </div>
         <h2 id="video-subtitle">{{ date | raw }} {% if date and time %} | {% endif %} {{ time | raw }} </h2>
     </div>
 </div>

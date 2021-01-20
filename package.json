@@ -18,6 +18,7 @@
   },
   "homepage": "https://stream.tum.sexy",
   "dependencies": {
+    "@popperjs/core": "^2.6.0",
     "aos": "^2.3.4",
     "bootstrap": "^4.5.3",
     "font-awesome": "^4.7.0",
