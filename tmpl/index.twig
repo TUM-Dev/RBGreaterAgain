@@ -67,7 +67,7 @@
             <div class="col col-md-8 offset-md-2 p-0">
                 <div role="tablist" id="accordion-1">
                     {% for vodElem in vod %}
-                        <div class="card">
+                        <div class="card {% if loop.index < loop.length %} border-bottom-0 {% endif %} ">
                             <a data-toggle="collapse" aria-expanded="false"
                                aria-controls="accordion-1 .item-{{ loop.index }}"
                                href="#accordion-1 .item-{{ loop.index }}">
