@@ -9,14 +9,14 @@ Currently, you can watch live streams and VoDs via the custom UI. Archives are n
 - Download Button
 - Custom Window Management (Drag and Drop Windows)
 
-
 ## Contribution
 If you want to contribute, please create a pull request and just wait for it to be reviewed ;)
 
 ## Getting started
+Install [npm](https://www.npmjs.com/get-npm), [composer](https://getcomposer.org/), [PHP](https://www.php.net/) and [Docker](https://www.docker.com/) using their respective installation instructions.
 
 ### Dependency management
-All the dependencies can be installed by running (assuming npm and composer are installed): 
+All the dependencies can be installed by running: 
 ```bash
 npm install --unsafe-perm
 composer install
@@ -32,8 +32,9 @@ Recommended if you did non-trivial change.
 ```bash
 docker build -t rgbreateragain .
 ```
+
 #### Running the Image
 ```bash
- docker run -dp 80:7000 rgbreateragain
+ docker run -p 80:7000 rgbreateragain
 ```
-you can now go to http://127.0.0.1:7000/ and test, if the server works.
+You can now go to [localhost:7000](http://localhost:7000/) and test, if the server works.
