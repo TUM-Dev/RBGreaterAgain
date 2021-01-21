@@ -3,7 +3,7 @@
 
 {% include 'head.twig' with {'title': name} %}
 
-<body class="d-flex flex-column" style="min-height: 100vh;">
+<body class="d-flex flex-column">
 <div style="flex: 1;">
     {% include 'navbar.twig' %}
     <div class="container hero main-content mt-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400"
@@ -36,6 +36,7 @@
     </div>
 </div>
 {% include 'footer.twig' %}
+<script src="/node_modules/hls.js/dist/hls.min.js"></script>
 
 </body>
 

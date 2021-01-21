@@ -48,6 +48,7 @@ a {
 .card {
     background: none;
     border: 1px solid var(--border-color);
+    border-bottom: none;
     border-radius: 0;
 }
 
@@ -74,6 +75,10 @@ a {
 
 .card-body {
     border-top: 1px solid var(--border-color);
+}
+
+.rowElem:last-child{
+    border-bottom: 1px solid var(--border-color);
 }
 
 #stream-frame video {

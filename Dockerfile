@@ -5,10 +5,10 @@ COPY ./package.json /app
 COPY ./package-lock.json /app
 # templates are needed in order to compile css
 COPY ./tmpl /app/tmpl
-# unsafe-perm makes sure we can write css to node_modules
+# TODO find a way of avaoiding --unsafe-perm
 RUN npm i --no-dev --unsafe-perm
 
-FROM composer:1.9 as composer
+FROM composer:latest as composer
 COPY ./composer.json /app
 COPY ./composer.lock /app
 RUN composer install --no-dev
