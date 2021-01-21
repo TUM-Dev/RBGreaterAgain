@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'head.twig' with {'title': name} %}
+<script src="/node_modules/hls.js/dist/hls.min.js"></script>
+
+<body>
+<div id="main">
+    <div id="stream-frame">
+        <video id="stream" controls autoplay></video>
+        <script>
+            const video = document.getElementById('stream');
+            const videoSrc = '{{ hls_url }}';
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoSrc;
+            }
+        </script>
+    </div>
+</div>
+</body>
+
+</html>

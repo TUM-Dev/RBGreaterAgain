@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'head.twig' with {'title': name} %}
+<script src="/node_modules/hls.js/dist/hls.min.js"></script>
+
+<body class="d-flex flex-column">
+<div style="flex: 1;">
+    {% include 'navbar.twig' %}
+    <div class="container hero main-content mt-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400"
+         data-aos-once="true">
+        <video class="w-100 pb-2" id="stream" controls autoplay></video>
+        <script>
+            const video = document.getElementById('stream');
+            const videoSrc = '{{ hls_url }}';
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoSrc;
+            }
+        </script>
+        <div class="d-flex flex-column-reverse flex-lg-row justify-content-between">
+            {# RBG occasionally uses special entities like &amp, using raw here so they won't get escaped #}
+            <h1 id="video-title">{{ name | raw }}</h1>
+            <button class="btn btn-outline-secondary dropdown-toggle mb-2 mb-lg-0 mb-xl-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Playback Speed</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" onclick="document.getElementById('stream').playbackRate=0.5;">50%</a>
+                <a class="dropdown-item" onclick="document.getElementById('stream').playbackRate=0.75;">75%</a>
+                <a class="dropdown-item" onclick="document.getElementById('stream').playbackRate=1;">100%</a>
+                <a class="dropdown-item" onclick="document.getElementById('stream').playbackRate=1.25;">125%</a>
+                <a class="dropdown-item" onclick="document.getElementById('stream').playbackRate=1.5;">150%</a>
+            </div>
+        </div>
+        <h2 id="video-subtitle">{{ date | raw }} {% if date and time %} | {% endif %} {{ time | raw }} </h2>
+    </div>
+</div>
+{% include 'footer.twig' %}
+
+</body>
+
+</html>
