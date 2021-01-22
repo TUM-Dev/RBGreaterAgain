@@ -67,7 +67,7 @@
             <div class="col col-md-8 offset-md-2 p-0">
                 <div role="tablist" id="accordion-1">
                     {% for vodElem in vod %}
-                        <div class="card {% if loop.index < loop.length %} border-bottom-0 {% endif %} ">
+                        <div class="card rowElem">
                             <a data-toggle="collapse" aria-expanded="false"
                                aria-controls="accordion-1 .item-{{ loop.index }}"
                                href="#accordion-1 .item-{{ loop.index }}">
@@ -131,7 +131,7 @@
         </div>
         <div class="row">
             {% for vodElem in vod_archive %}
-                <div class="card col-md-8 offset-md-2 p-0 border-bottom-0 rowElem">
+                <div class="card col-md-8 offset-md-2 p-0 rowElem">
                     <div class="card-header" role="tab">
                         <a href="{{ vodElem.info.link }}">
                             <h5 class="mb-0"><i class="fa fa-external-link"></i> {{ vodElem.info.name }}<br></h5>
