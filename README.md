@@ -13,21 +13,60 @@ Currently, you can watch live streams and VoDs via the custom UI. Archives are n
 If you want to contribute, please create a pull request and just wait for it to be reviewed ;)
 
 ## Getting started
-Install [npm](https://www.npmjs.com/get-npm), [composer](https://getcomposer.org/), [PHP](https://www.php.net/) and [Docker](https://www.docker.com/) using their respective installation instructions.
+There are two main ways of developing for this Project. Native has the advantage of speed and Docker the advantage of how easy it is to get started.
+Doing the final tests in Docker is recommended, because we use Docker in production.
+### Native Development
+#### Windows
+Install 
+- [npm](https://www.npmjs.com/get-npm)
+- [composer](https://getcomposer.org/)
+- [PHP](https://www.php.net/)
+- [Apache](https://sourceforge.net/projects/wampserver/)
+- [apcu](http://pecl.php.net/package/APCu) (choose the version that is compatible with your PHP-version and system)
 
-### Dependency management
-All the dependencies can be installed by running: 
+#### Linux
+##### Hard dependencies
+Install dev-dependencies using
 ```bash
-npm install --unsafe-perm
+sudo apt install apache php libapache2-mod-php php-apcu npm composer
+```
+
+#### Configure Apache
+Add inside `VirtualHost`
+```apacheconf
+<Directory /var/www/html>
+AllowOverride All
+Require all granted
+</Directory>
+```
+to the configuration-file at `/etc/apache2/sites-available/000-default.conf`
+
+#### Let PHP know about apcu
+Create a file `/etc/php/PHPVERSION/apache2/conf.d/apcu.ini` where `PHPVERSION` is your current PHP-Release. The content of this file should be
+```apacheconf
+extension=apcu.so
+```
+
+#### Enable apache rewriteengine and php
+```bash
+sudo a2enmod rewrite php[7.4]
+sudo systemctl restart apache2.service
+```
+
+#### Clone to `/var/www/html`
+```bash
+sudo chown $USER /var/www/html
+git clone https://github.com/TUM-Dev/RBGreaterAgain.git /var/www/html
+```
+##### Dependency management
+All the dependencies can be installed by running in `/var/www/html`: 
+```bash
+npm install
 composer install
 ```
 
-### PHP-Development
-**TODO** for someone with a good Development setup should add this
-
-### Docker 
-Why? Testing if the Dockerfile will work if tried to deploy the Image it generates.  
-Recommended if you did non-trivial change.
+### Docker
+Install  [Docker](https://docs.docker.com/get-docker/)
 #### Building the docker Image (for local testing)
 ```bash
 docker build -t rgbreateragain .
@@ -35,6 +74,6 @@ docker build -t rgbreateragain .
 
 #### Running the Image
 ```bash
- docker run -p 80:7000 rgbreateragain
+docker run -p 7000:80 rgbreateragain
 ```
 You can now go to [localhost:7000](http://localhost:7000/) and test, if the server works.
