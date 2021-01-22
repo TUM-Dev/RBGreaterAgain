@@ -14,7 +14,7 @@ body {
     color: var(--text-color);
 }
 
-.navbar{
+.navbar {
     background-color: var(--accent-color);
 }
 
@@ -48,7 +48,6 @@ a {
 .card {
     background: none;
     border: 1px solid var(--border-color);
-    border-bottom: none;
     border-radius: 0;
 }
 
@@ -77,7 +76,11 @@ a {
     border-top: 1px solid var(--border-color);
 }
 
-.rowElem:last-child{
+.rowElem {
+   border-bottom: none;
+}
+
+.rowElem:last-child {
     border-bottom: 1px solid var(--border-color);
 }
 
