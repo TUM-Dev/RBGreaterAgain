@@ -7,6 +7,15 @@
     --tum-blue: #0065bd;
 }
 
+[data-theme="light"] {
+    --background-color: #ececec;
+    --accent-color: #161b22;
+    --border-color: #21262d;
+    --text-color: #535353;
+    --white: #fff;
+    --tum-blue: #0065bd;
+}
+
 body {
     min-height: 100vh;
     text-align: left;
@@ -16,6 +25,10 @@ body {
 
 .navbar {
     background-color: var(--accent-color);
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .row {
@@ -63,6 +76,10 @@ a {
     width: 70%;
 }
 
+.table {
+    color: var(--text-color);
+}
+
 .table td {
     padding: 2px;
     border-top: 1px solid var(--border-color);
@@ -77,7 +94,7 @@ a {
 }
 
 .rowElem {
-   border-bottom: none;
+    border-bottom: none;
 }
 
 .rowElem:last-child {
