@@ -15,20 +15,18 @@
     $(document).ready(function () {
         AOS.init();
 
-        // set lightmode initially if present in cookie.
-        if (/.*lightModeEnabled.*/g.test(document.cookie)) {
-            document.documentElement.setAttribute('data-theme', 'light');
+        if (localStorage.lightmode) {
+            document.documentElement.setAttribute('data-theme', 'light')
         }
     });
 
     function toggleColorScheme() {
         if (document.documentElement.hasAttribute("data-theme")) {
             document.documentElement.removeAttribute("data-theme")
-            document.cookie = "lightModeEnabled=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            localStorage.removeItem("lightmode")
         } else {
             document.documentElement.setAttribute('data-theme', 'light')
-            let d = new Date()
-            document.cookie = "lightModeEnabled=1; expires=" + d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000)) + "; path=/;"
+            localStorage.lightmode = true
         }
     }
 </script>
