@@ -1,17 +1,34 @@
 <div class="footer-basic bg-black footer-custom">
     <footer>
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="https://github.com/TUM-Dev/RBGreaterAgain" target="_blank"><i class="fa fa-github"></i>&nbsp;Contribute</a></li>
+            <li class="list-inline-item"><a href="https://github.com/TUM-Dev/RBGreaterAgain" target="_blank">
+                    <i class="fa fa-github"></i>&nbsp;Contribute</a>
+            </li>
         </ul>
-        <p class="copyright">Brought to you by&nbsp;<a href="https://www.tum.app" target="_blank">TUM-Dev</a> &nbsp;© {{ 'now' | date('Y') }}</p>
+        <p class="copyright">Brought to you by&nbsp;<a href="https://www.tum.app" target="_blank">TUM-Dev</a>
+            &nbsp;© {{ 'now' | date('Y') }}</p>
     </footer>
 </div>
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         AOS.init();
+
+        if (localStorage.lightmode) {
+            document.documentElement.setAttribute('data-theme', 'light')
+        }
     });
+
+    function toggleColorScheme() {
+        if (document.documentElement.hasAttribute("data-theme")) {
+            document.documentElement.removeAttribute("data-theme")
+            localStorage.removeItem("lightmode")
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light')
+            localStorage.lightmode = true
+        }
+    }
 </script>
 <script src="/node_modules/aos/dist/aos.js"></script>
 <script src="/node_modules/hls.js/dist/hls.min.js"></script>
